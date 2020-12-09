@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "/github/langaues/",
+			"name": "/langaues/",
 			"event": [
 				{
 					"listen": "test",
@@ -17,13 +17,23 @@
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							""
+							"",
+							"pm.test(\"value contains langagues array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array')",
+							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -39,6 +49,17 @@
 					]
 				},
 				"description": "List most 100 trending langagues in past 30 days on Github and thier repos"
+			},
+			"response": []
+		},
+		{
+			"name": "Github/search/repos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		}
