@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "8dacf30e-70a1-46a8-b69c-cffe84f553cd",
+		"name": "Github",
+		"description": "List most 100 trending langauges on Github and thier repos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/github/langaues/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "591de50a-9ae2-400f-a2c7-1859663a1b71",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/languages/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"languages",
+						""
+					]
+				},
+				"description": "List most 100 trending langagues in past 30 days on Github and thier repos"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

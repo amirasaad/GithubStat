@@ -1,0 +1,4 @@
+-r base.txt
+uvicorn==0.13.0
+
+pytest==6.1.2
