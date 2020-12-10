@@ -4,8 +4,6 @@ from typing import List
 
 from fastapi import FastAPI
 
-from src.schema import Langauge
-
 from .github import Github
 from .schema import Langauge
 
