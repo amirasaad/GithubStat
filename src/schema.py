@@ -1,4 +1,5 @@
 from typing import List, Union
+
 from pydantic import BaseModel, HttpUrl
 
 
@@ -14,7 +15,7 @@ class Langauge(BaseModel):
                 "number_of_repos": 2,
                 "repos": [
                     "https://github.com/amirasaad/pastebin",
-                    "https://github.com/amirasaad/GDL"
+                    "https://github.com/amirasaad/GDL",
                 ],
             }
         }

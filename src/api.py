@@ -1,9 +1,10 @@
+"""src.app Contains main APIs."""
+
 from typing import List
-from src.schema import Langauge
-"""
-src.app Contains main APIs
-"""
+
 from fastapi import FastAPI
+
+from src.schema import Langauge
 
 from .github import Github
 from .schema import Langauge
@@ -16,5 +17,4 @@ async def languages():
     """
     List the languages used by the 100 trending public repos on GitHub
     """
-    return await Github.get_languages()
-
+    return Github().get_languages()
