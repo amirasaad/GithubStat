@@ -36,3 +36,10 @@ A postman `Github.postman_collection.json` collection is provided you can run by
 npm install -g newman
 newman run Github.postman_collection.json
 ```
+
+And also unit testing by pytest
+
+```bash
+pip install -r requirements/local.txt
+pytest
+```
