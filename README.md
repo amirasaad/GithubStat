@@ -28,5 +28,6 @@ Testing
 A postman `Github.postman_collection.json` collection is provided you can run by newmap after running  up the server
 
 ```bash
+npm install -g newman
 newman run Github.postman_collection.json
 ```
