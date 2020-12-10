@@ -42,6 +42,7 @@ class Github:
 
         return response
 
+
     def get_languages(self) -> List[Langauge]:
         """
         Return list of langauges used by the 100 trending public repos on GitHub.
@@ -50,7 +51,7 @@ class Github:
         res = self.search_repositories(
             q=f"created:>{last_30_days}", sort=Sort.STARS, order=Order.DECE
         )
-        return self._group_by_languge(res['items'])
+        return self._group_by_langauge(res['items'])
 
     def _get(self, url: str, query: Dict) -> Dict:
         """
@@ -60,7 +61,7 @@ class Github:
         response = requests.get(full_url, query, headers=self.headers)
         return response.json()
 
-    def _group_by_languge(self, repos_list: List) -> List[Langauge]:
+    def _group_by_langauge(self, repos_list: List) -> List[Langauge]:
         """
         Utitly function to group list of repos by langague
         """
