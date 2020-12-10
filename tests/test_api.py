@@ -4,14 +4,16 @@ from src.api import app
 
 client = TestClient(app)
 
+
 def test_languages_api():
     response = client.get("/languages/")
     assert response.status_code == 200
-    assert response.json() == [{
-        "name": "Python",
-        "number_of_repos": 2,
-        "repos": [
-            "https://github.com/amirasaad/pastebin",
-            "https://github.com/amirasaad/GDL"
-        ],
-    }]
+    _check_response_type(response.json())
+
+
+def _check_response_type(json_response):
+    for el in json_response:
+        print(el)
+        assert "name" in el
+        assert "number_of_repos" in el
+        assert "repos" in el
