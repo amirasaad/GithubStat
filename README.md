@@ -7,6 +7,8 @@ REST microservice that list the languages used by the 100 trending public repos 
 To run locally simply cd into the root of repo and run following commands:
 
 ```bash
+python3.9 -m venv venv
+source venv/bin/activate
 pip install -r requirements/local.txt
 uvicorn src.api:app --reload
 ```
