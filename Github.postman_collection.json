@@ -51,17 +51,6 @@
 				"description": "List most 100 trending langagues in past 30 days on Github and thier repos"
 			},
 			"response": []
-		},
-		{
-			"name": "Github/search/repos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
