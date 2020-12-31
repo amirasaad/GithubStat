@@ -23,5 +23,6 @@ class TestGithubClient:
                 order=Order.DECE,
             )
         assert repos["items"][0]["full_name"] == 'dtrupenn/Tetris'
+        assert repos["items"][0]["language"] == 'Assembly'
         assert repos["total_count"] == 40
         assert False == repos["incomplete_results"]
