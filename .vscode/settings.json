@@ -1,9 +1,0 @@
-{
-    "python.testing.pytestArgs": [
-        "."
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "python.pythonPath": "/Users/amirasaad/Projects/github-stat/venv/bin/python3.9"
-}

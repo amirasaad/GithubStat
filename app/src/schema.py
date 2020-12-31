@@ -3,7 +3,7 @@ from typing import List, Union
 from pydantic import BaseModel, HttpUrl
 
 
-class Langauge(BaseModel):
+class Language(BaseModel):
     name: Union[str, None]
     number_of_repos: int
     repos: List[HttpUrl]

@@ -1,2 +1,0 @@
-fastapi==0.62.0
-requests==2.25.0

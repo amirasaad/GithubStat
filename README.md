@@ -2,25 +2,19 @@
 
 REST microservice that list the languages used by the 100 trending public repos on GitHub.
 
-# Usage
+## Quick Start
 
 To run locally simply cd into the root of repo and run following commands:
 
 ```bash
-python3.9 -m venv venv
-source venv/bin/activate
-pip install -r requirements/local.txt
-uvicorn src.api:app --reload
+docker build -tag github-stat:latest
 ```
-
-Or using docker
-
+To run the server on port e.g. 8000
 ```bash
-docker build -t github-stat .
-docker run -d --name github-stat -p 80:80 github-stat
+docker run -p 8000:8000 -it github-stat:latest uvicorn src.main:app --host 0.0.0.0 --port 8000
 ```
 
-# API
+## API
 
 
 `GET /language`
@@ -30,9 +24,9 @@ Endpoint to list the languages used by the 100 trending public repos on GitHub i
 curl http://localhost:8000/languages/
 ```
 
-# Testing
+### Testing
 
-A postman `Github.postman_collection.json` collection is provided you can run by newmap after running up the server
+A postman `Github.postman_collection.json` collection is provided you can run by newman after running up the server
 
 ```bash
 npm install -g newman
@@ -42,6 +36,5 @@ newman run Github.postman_collection.json
 And also unit testing by pytest
 
 ```bash
-pip install -r requirements/local.txt
-pytest
+docker exec -it github-stat:latest pytest
 ```
