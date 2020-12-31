@@ -2,6 +2,7 @@
 
 REST microservice that list the languages used by the 100 trending public repos on GitHub.
 
+[![Build Status](https://travis-ci.com/amirasaad/GithubStat.svg?branch=main)](https://travis-ci.com/amirasaad/GithubStat)
 ## Quick Start
 
 To run locally simply cd into the root of repo and run following commands:
