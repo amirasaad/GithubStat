@@ -1,0 +1,13 @@
+language: python
+
+services:
+  - docker
+
+before_install:
+  - docker build -t amirasaad/github-stat .
+  - docker run -d -p 127.0.0.1:80:4567 amirasaad/github-stat uvicorn src.main:app --host 0.0.0.0 --port 80;"
+  - docker ps -a
+  - docker run amirasaad/github-stat pytest"
+
+script:
+  - pytest
