@@ -8,11 +8,10 @@ fastapi = "0.63.0"
 requests = "2.25.1"
 uvicorn = "0.13.0"
 
+[dev-packages]
 pytest = "*"
 responses = "*" # https://github.com/getsentry/responses
-
-
-[dev-packages]
+pytest-cov = "*"
 black = "*"
 isort = "*"
 flake8 = "*"
