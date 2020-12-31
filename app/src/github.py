@@ -1,12 +1,10 @@
-from os import environ as env
 from datetime import date, timedelta
 from enum import Enum
 from typing import Dict, List
 
 import requests
 from .schema import Language
-
-GITHUB_BASE_URL = env.get('GITHUB_BASE_URL', 'https://api.github.com')
+from .settings import settings
 
 
 class Order(Enum):
@@ -28,7 +26,7 @@ class Github:
     """
 
     def __init__(self, base_url=None, oauth_token=None):
-        self.base_url = GITHUB_BASE_URL if base_url is None else base_url
+        self.base_url = settings().GITHUB_BASE_URL if base_url is None else base_url
         self.headers = {'Accept': 'application/vnd.github.v3+json'}
         if oauth_token is not None:
             self.headers['Authorization'] = f'Authorization: {oauth_token}'
@@ -37,13 +35,13 @@ class Github:
         """
         Search github repositories
 
-        calls: `GET /search/repositories <http://developer.github.com/v3/search>`_
+        :calls: `GET /search/repositories <http://developer.github.com/v3/search>`_
         :param q: str
         :param sort: Sort
         :param order: Order
         :return JSON response
         """
-        return self._get('/search/repositories', {'q': q, sort: sort, order: order})
+        return self._get('/search/repositories', {'q': q, 'sort': sort, 'order': order})
 
     def get_languages(self) -> List[Language]:
         """
@@ -63,7 +61,7 @@ class Github:
         response = requests.get(full_url, query, headers=self.headers)
         return response.json()
 
-    def _group_by_language(self, repos_list: List) -> List[Language]:
+    def _group_by_language(self, repos_list: List) -> List[dict]:
         """
         Utility function to group list of repos by language
         """
