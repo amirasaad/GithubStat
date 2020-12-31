@@ -5,9 +5,8 @@ services:
 
 before_install:
   - docker build -t amirasaad/github-stat app
-  - docker run -d -p 127.0.0.1:80:4567 github-stat:travis uvicorn src.main:app --host 0.0.0.0 --port 80;"
+  - docker run -d -p 127.0.0.1:80:4567 amirasaad/github-stat uvicorn src.main:app --host 0.0.0.0 --port 80
   - docker ps -a
-  - docker run github-stat:travis pytest"
 
 script:
-  - pytest
+  - docker run amirasaad/github-stat pytest
